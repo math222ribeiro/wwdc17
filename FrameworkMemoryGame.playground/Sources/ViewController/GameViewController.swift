@@ -36,29 +36,32 @@ public class GameViewController: UIViewController, UICollectionViewDelegate, UIC
     fatalError("init(coder:) has not been implemented")
   }
   
-  override public func viewDidLoad() {
-    super.viewDidLoad()
-    foregroundView = UIView(frame: view.frame)
-    foregroundView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.9)
+    public override func loadView() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 800, height: 600))
+        view.backgroundColor = .white
+        self.view = view
+    }
     
-    initPlayers()
-    
-    // Twelve cards
-    game = Game(numberOfCombinations: 2)
-    
-    // Application frame 800x600
-    view.frame = CGRect(x: 0, y: 0, width: 800, height: 600)
-    
-    backgroundView = SKView(frame: view.frame)
-    let gameScene = BackgroundScene(size: CGSize(width: view.frame.width, height: view.frame.height))
-    backgroundView.presentScene(gameScene)
-    
-    setUpCollectionView()
-    
-    self.view.addSubview(backgroundView)
-    self.view.addSubview(cardsCollectionView)
-    showCards()
-  }
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+        foregroundView = UIView(frame: view.frame)
+        foregroundView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
+        
+        initPlayers()
+        
+        // Twelve cards
+        game = Game(numberOfCombinations: 2)
+        
+        backgroundView = SKView(frame: view.frame)
+        let gameScene = BackgroundScene(size: CGSize(width: view.frame.width, height: view.frame.height))
+        backgroundView.presentScene(gameScene)
+        
+        setUpCollectionView()
+        
+        self.view.addSubview(backgroundView)
+        self.view.addSubview(cardsCollectionView)
+        showCards()
+    }
   
   private func showCards() {
     cardsCollectionView.isUserInteractionEnabled = false

@@ -20,4 +20,4 @@
 import PlaygroundSupport
 
 var controller = GameViewController()
-PlaygroundPage.current.liveView = controller.view
+PlaygroundPage.current.liveView = controller

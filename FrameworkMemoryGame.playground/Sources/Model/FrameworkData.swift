@@ -75,7 +75,7 @@ public class FrameworkData {
       case .sirikit:
         let imageView = UIImageView(frame: frame)
         imageView.image = UIImage(named: "siri")
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         view = imageView
       case .homekit:
         view = AnimatedDemoView(frame: frame, imagePath: "home/0", duration: 2, numberOfFrames: 8)

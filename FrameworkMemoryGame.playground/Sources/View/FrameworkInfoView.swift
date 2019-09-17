@@ -56,7 +56,7 @@ public class FrameworkInfoView: UIView {
     
     dismissButton = UIButton(type: .system)
     dismissButton.frame = CGRect(x: 246, y: 462, width: 108, height: 30)
-    dismissButton.setTitle("Continue", for: UIControlState.normal)
+    dismissButton.setTitle("Continue", for: UIControl.State.normal)
     dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
     addSubview(dismissButton)
   }
@@ -67,7 +67,7 @@ public class FrameworkInfoView: UIView {
     infoLabel.text = framework.text
   }
   
-  public func dismissView() {
+    @objc  public func dismissView() {
     UIView.animate(withDuration: 1.6, animations: {
       self.superview?.alpha = 1
       self.superview?.alpha = 0
